@@ -1,0 +1,530 @@
+@charset "UTF-8";
+/*
+   style.css
+
+   title: html5_framework_3.0
+   
+   Created by Ralf on 08.2013
+   Copyright 2013 __Ralf Hoffmeister__ All rights reserved. 
+*/
+/* CSS Document */
+/* ========================================================= */
+/* = ================= ADJUSTMENTS ======================= = */
+/* ========================================================= */
+
+/*RESET
+**************************************************************/
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video, button { 
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/*:focus {
+  outline: 0;
+}*/
+
+/*SELF CLEAR FLOATING ELEMENTS
+**************************************************************/
+  .clear:after {
+    content: ".";
+    display: block;
+    height: 0;
+    font-size: 0;
+    clear: both;
+    visibility: hidden; 
+  }
+  /* for IE6 */
+  * html .clear {height: 1%; }
+  /* for IE7 */
+  *:first-child + html .clear {min-height: 1px; } 
+
+
+/*Icomoon Icons*/ 
+
+@font-face {
+  font-family: 'icomoon';
+  src:url('fonts/icomoon.eot');
+  src:url('fonts/icomoon.eot?#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.woff') format('woff'),
+    url('fonts/icomoon.ttf') format('truetype'),
+    url('fonts/icomoon.svg#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+} 
+
+html { 
+  height: 100%;
+  min-height: 100%;
+  font-size: 100%; 
+  text-rendering: optimizeLegibility; 
+} 
+
+body { 
+  position: relative; 
+  height: 100%;
+}
+
+
+/* ========================================================= */
+/* = ==================== OBJECTS ======================== = */
+/* ========================================================= */
+
+/*some handy classes you probably need during a project*/
+
+
+/*FONTS
+**************************************************************/
+
+/*weight*/
+.ultraLight { font-weight: 100; }
+.thin { font-weight: 200; }
+.light { font-weight: 300; }
+.regular { font-weight: 400; }
+.semiBold { font-weight: 500; }
+.bold { font-weight: 600; }
+.extraBold { font-weight: 700; }
+.heavy { font-weight: 800; }
+.ultraHeavy { font-weight: 900; } 
+
+/*size*/
+.small { font-size: .75em; } 
+.medium { font-size: 1.5em; }
+.large { font-size: 2em; } 
+.x-large { font-size: 2.5em; }
+
+/*alignment*/
+.align-center { text-align: center; }
+.align-block { text-align: justify; }
+.align-right { text-align: right; } 
+
+/*styling*/
+.dropCap {
+  font-size: 3em; 
+  line-height: 1; 
+  font-weight: 600; 
+  padding: 2px 8px 0 0;
+  float: left; }
+.runIn { font-weight: bold;}
+.icon {font-family: 'icomoon';} 
+.italic {font-style: italic;}
+
+/*other*/
+.hideText {
+  text-indent: -9999px;
+  margin: 0;
+  padding: 0; 
+} 
+
+
+/*DISPLAY OPTIONS
+**************************************************************/
+
+/*floats*/
+.left {float: left;}
+.right {float: right;} 
+
+/*display*/
+.block {display: block;} 
+.inline {display: inline;} 
+
+/*position*/ 
+.fixed {position: fixed;} 
+.absolute{position: absolute;} 
+.relative {position: relative;} 
+.static {position: static;}
+
+
+/*GRID SYSTEM (PUT EACH GRIDSET INSIDE A CLEARED FRAME)
+**************************************************************/
+
+.half {
+  width: 49%; 
+  float: left; 
+  margin-left: 2%;
+} 
+  .half:first-child {margin-left: 0;}
+
+.third {
+  width: 32%; 
+  margin-left: 2%;
+  float: left; 
+} 
+.third.double {
+  width: 66%; 
+  margin-left: 2%;
+  float: left;
+}
+  .third:first-child, 
+  .third.double:first-child {margin-left: 0;} 
+
+.quarter {
+  width: 23.5%; 
+  margin-left: 2%;
+  float: left;
+} 
+.quarter.triple {
+  width: 74.5%; 
+  margin-left: 2%;
+  float: left;
+} 
+  .quarter:first-child, 
+  .quarter.triple:first-child {margin-left: 0;} 
+
+
+
+/*MISC
+**************************************************************/ 
+
+.preloader {background: transparent url("../images/preloader.gif") no-repeat center center;}
+
+.border-bottom {
+  border-bottom: 1px solid; 
+  margin-bottom: .25em;
+} 
+
+
+/* ========================================================= */
+/* = ===================== BASE STYLES =================== = */
+/* ========================================================= */
+/*Set this styles first on every project and you’ll have a solid design basis*/
+
+body { 
+  font-family: Verdana, sans-serif;
+  font-size: 125%;
+  line-height: 1.6; 
+}
+
+h1 {
+  font-size: 3em; 
+  padding: 1em 0 .25em 0;
+}
+
+h2 {
+  font-size: 2.5em; 
+  padding: 1em 0 .25em 0;
+}
+
+h3 {
+  font-size: 2.25em; 
+  padding: 1em 0 .25em 0;
+}
+
+h4 {
+  font-size: 2em; 
+  padding: 1em 0 .25em 0;
+}
+
+h5 {
+  font-size: 1.75em; 
+  padding: 1em 0 .25em 0;
+}
+
+h6 {
+  font-size: 1.5em; 
+  padding: 1em 0 .25em 0;
+}
+
+p {
+  padding: 0.5em 0 0.5em 0; 
+  -ms-word-break: hyphenate; 
+  -epub-word-break: hyphenate;
+  word-break: normal; 
+  word-wrap: normal;
+  /* old webkit */
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto; 
+  -epub-hyphens: auto;
+  hyphens: auto;
+}
+
+a {
+    border: 0; 
+    outline: 0; 
+    color: inherit;
+}
+  .no-touch a:hover, a:focus { 
+    
+  } 
+  
+  a:active { 
+    
+  } 
+
+button { 
+  font-size: 1em; 
+  border: none;
+  background: #eee; 
+  padding: .25em .5em; 
+  line-height: 1em; 
+  -webkit-border-radius: .25em; 
+  -moz-border-radius: .25em; 
+  border-radius: .25em; 
+} 
+
+  .no-touch button:hover, button:focus { 
+    background: #aaa;
+  } 
+  
+  .no-touch button:active, 
+   button:active { 
+      background: #000; 
+      color: #fff;
+  }
+
+em {
+  font-style: italic; 
+}
+
+strong {
+  font-weight: 900; 
+}
+
+code {
+  font-family: courier, monospace; 
+}
+
+address {
+  font-style: italic; 
+}
+
+pre {
+  font-family: courier, monospace;
+  white-space: pre-wrap;
+}
+
+ul li {
+   list-style: disc; 
+   margin-left: 10px;
+} 
+
+img {
+  max-width: 100%;
+  width: auto\9; /* ie8 */
+  height: auto !important;
+  -ms-interpolation-mode: bicubic; 
+  border: 0; 
+  -webkit-transform: translate3d(0, 0, 0);
+     -moz-transform: translate3d(0, 0, 0);
+      -ms-transform: translate3d(0, 0, 0);
+       -o-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+
+}
+
+blockquote {
+  font-weight: 900; 
+  font-style: italic;
+}
+
+::-moz-selection,
+::-webkit-selection,
+::selection {
+  background: #aaa;
+  color: white; 
+}
+
+h1::-moz-selection, h2::-moz-selection, h3::-moz-selection,
+h4::-moz-selection, h5::-moz-selection, h6::-moz-selection,
+a::-moz-selection, blockquote::-moz-selection, 
+h1::-webkit-selection,h2::-webkit-selection, h3::-webkit-selection, 
+h4::-webkit-selection,h5::-webkit-selection, h6::-webkit-selection, 
+a::-webkit-selection,blockquote::-webkit-selection, 
+h1::selection, h2::selection,h3::selection, h4::selection, 
+h5::selection, h6::selection,a::selection, blockquote::selection {
+  color: #222222; 
+} 
+
+.sans { font-family: Verdana, sans-serif; }
+.serif { font-family: Georgia, Times, serif; } 
+.mono { font-family: courier, monospace; }
+.fancy { 
+  font-family: "Didot", "Times New Roman", Georgia, Times, serif; 
+  -moz-font-feature-settings: "liga=1";
+  -ms-font-feature-settings: "liga" 1;
+  -moz-font-feature-settings: "frac=1";
+  -ms-font-feature-settings: "frac" 1;
+}
+
+/* ========================================================= */
+/* = =================PAGE STRUCTURE====================== = */
+/* ========================================================= */
+
+  .container { /*contains the whole Page, Header, ,Content, Footer */
+    position: relative; 
+    min-height: 100%;
+    width: 100%;  
+    background: #fafaff;
+  } 
+
+    .prev-nav {
+      position: fixed; 
+      top: 0; 
+      left: 0; 
+      height: 100%; 
+      width: 100px;
+      z-index: 1000; 
+    }  
+  
+      .prev-nav > ul { 
+        overflow: hidden;
+        position: relative;
+        top: 100px; 
+        left: -70px; 
+        width: 50px; 
+        padding: 10px 5px;
+        -webkit-transition: all .25s ease-in-out;
+           -moz-transition: all .25s ease-in-out;
+            -ms-transition: all .25s ease-in-out;
+             -o-transition: all .25s ease-in-out;
+                transition: all .25s ease-in-out; 
+/*        border: 90px solid #000; 
+        border-radius: 0 10px 10px 0; 
+        background: #fff; 
+        -webkit-box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, .2);
+        -moz-box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, .2);
+        box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, .2);*/
+      } 
+    
+      .prev-nav:hover > ul {
+        overflow: visible;
+        left: -3px; 
+      }
+    
+        .prev-nav > ul > li { 
+          position: relative;
+          margin: 5px;
+          width: 30px; 
+          padding: 0; 
+          list-style: none;
+        } 
+    
+          .prev-switch {
+            display: block; 
+            text-decoration: none; 
+            text-align: center; 
+            line-height: 1; 
+            padding-top: 7px;
+            width: 36px; 
+            height: 29px; 
+            border-radius: 100%; 
+            background: #fff; 
+            border: 2px solid #000; 
+          } 
+      
+          .prev-switch:hover {
+            background: #ddd;
+          } 
+      
+          .prev-switch:active, 
+          .prev-switch.active {
+            background: #000; 
+            color: #fff;
+          } 
+  
+          .description { 
+            font-size: 12px;
+            display: block; 
+            color: rgba(0,0,0,0.0);
+            width: 150px; 
+  
+            position: absolute; 
+            top: 0; 
+            left: 180px; 
+            padding: 5px 10px;
+            -webkit-transition: all .4s ease-out;
+               -moz-transition: all .4s ease-out;
+                -ms-transition: all .4s ease-out;
+                 -o-transition: all .4s ease-out;
+                    transition: all .4s ease-out; 
+            -webkit-border-radius: 5px;
+               -moz-border-radius: 5px;
+                    border-radius: 5px;
+            background: transparent; 
+            border: 3px solid rgba(0,0,0,0);
+          } 
+  
+          li:hover .description {
+            left: 80px;
+            color: rgba(0,0,0,1);
+            background: rgba(255,255,255,.8); 
+/*            -webkit-box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, .2);
+               -moz-box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, .2);
+                    box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, .2);*/
+            border: 2px solid rgba(0,0,0,1);
+          } 
+  
+            .arrow-left { 
+              position: absolute; 
+              top: 13px; 
+              left: -7px;
+              width: 0; 
+              height: 0; 
+              border-top: 5px solid transparent;
+              border-bottom: 5px solid transparent; 
+              border-right:5px solid rgba(0,0,0,0); 
+            } 
+    
+            li:hover .arrow-left {
+              border-top: 5px solid transparent;
+              border-bottom: 5px solid transparent; 
+              border-right:5px solid rgba(0,0,0,1); 
+    
+            }
+  
+    .image-container { 
+      width: 1000px;
+      margin: 0 auto;
+    }
+
+
+/* =========== */
+/* = CONTENT = */
+/* =========== */ 
+
+.content {
+  position: relative; 
+} 
+
